@@ -4,16 +4,22 @@
  */
 package com.mycompany.villa;
 
+import java.awt.HeadlessException;
+import java.sql.Connection;
+import java.sql.SQLException;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author ASUS
  */
-public class Home extends javax.swing.JFrame {
+public class Laporan extends javax.swing.JFrame {
 
     /**
-     * Creates new form Home
+     * Creates new form Laporan
      */
-    public Home() {
+    public Laporan() {
         initComponents();
     }
 
@@ -27,69 +33,83 @@ public class Home extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        jTextField1 = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
         jCheckBoxMenuItem1 = new javax.swing.JCheckBoxMenuItem();
         jCheckBoxMenuItem2 = new javax.swing.JCheckBoxMenuItem();
+        jCheckBoxMenuItem3 = new javax.swing.JCheckBoxMenuItem();
         jCheckBoxMenuItem4 = new javax.swing.JCheckBoxMenuItem();
-        jCheckBoxMenuItem5 = new javax.swing.JCheckBoxMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(630, 440));
+        setPreferredSize(new java.awt.Dimension(693, 428));
 
-        jButton1.setText("Tambah Pesanan");
+        jLabel1.setText("No. Pemesanan/Nama");
+
+        jButton1.setText("Cari");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
 
-        jButton2.setText("Pembayaran");
-        jButton2.setMaximumSize(new java.awt.Dimension(120, 22));
-        jButton2.setMinimumSize(new java.awt.Dimension(120, 22));
-        jButton2.setPreferredSize(new java.awt.Dimension(120, 22));
+        jButton2.setText("Batalkan Pesan");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
             }
         });
 
-        jButton3.setText("Laporan");
-        jButton3.setMaximumSize(new java.awt.Dimension(120, 22));
-        jButton3.setMinimumSize(new java.awt.Dimension(120, 22));
-        jButton3.setPreferredSize(new java.awt.Dimension(120, 22));
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null}
+            },
+            new String [] {
+                "No. Pesanan", "Nama", "Tanggal Masuk", "Jenis Kamar", "Durasi", "Status", "Tarif"
             }
-        });
+        ));
+        jScrollPane1.setViewportView(jTable1);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(332, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(29, 29, 29))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(29, 29, 29)
+                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(69, 69, 69)
+                        .addComponent(jButton1)
+                        .addGap(18, 18, 18)
+                        .addComponent(jButton2)
+                        .addGap(0, 158, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(61, 61, 61)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(30, 30, 30)
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(33, 33, 33)
-                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(43, Short.MAX_VALUE))
+                .addGap(14, 14, 14)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton1)
+                    .addComponent(jButton2))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(281, Short.MAX_VALUE))
         );
 
         jMenu1.setText("Home");
@@ -115,23 +135,23 @@ public class Home extends javax.swing.JFrame {
         });
         jMenu2.add(jCheckBoxMenuItem2);
 
+        jCheckBoxMenuItem3.setSelected(true);
+        jCheckBoxMenuItem3.setText("Laporan");
+        jCheckBoxMenuItem3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBoxMenuItem3ActionPerformed(evt);
+            }
+        });
+        jMenu2.add(jCheckBoxMenuItem3);
+
         jCheckBoxMenuItem4.setSelected(true);
-        jCheckBoxMenuItem4.setText("Laporan");
+        jCheckBoxMenuItem4.setText("Keluar");
         jCheckBoxMenuItem4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jCheckBoxMenuItem4ActionPerformed(evt);
             }
         });
         jMenu2.add(jCheckBoxMenuItem4);
-
-        jCheckBoxMenuItem5.setSelected(true);
-        jCheckBoxMenuItem5.setText("Keluar");
-        jCheckBoxMenuItem5.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBoxMenuItem5ActionPerformed(evt);
-            }
-        });
-        jMenu2.add(jCheckBoxMenuItem5);
 
         jMenuBar1.add(jMenu2);
 
@@ -151,32 +171,26 @@ public class Home extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-//                this.setVisible(false);//menyembunyikan tampilan dan menampilkan home page
-//                TambahData dashboard=new TambahData();
-//                dashboard.setLocationRelativeTo(dashboard);
-//                dashboard.setVisible(true);         
-    }//GEN-LAST:event_jButton1ActionPerformed
+    private void jCheckBoxMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBoxMenuItem3ActionPerformed
+        this.setVisible(false);//menyembunyikan tampilan dan menampilkan home page
+        Laporan dashboard=new Laporan();
+        dashboard.setLocationRelativeTo(dashboard);
+        dashboard.setVisible(true);
+    }//GEN-LAST:event_jCheckBoxMenuItem3ActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // TODO add your handling code here:
-                this.setVisible(false);//menyembunyikan tampilan dan menampilkan home page
-                Laporan dashboard=new Laporan();
-                dashboard.setLocationRelativeTo(dashboard);
-                dashboard.setVisible(true);
-    }//GEN-LAST:event_jButton3ActionPerformed
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-//                this.setVisible(false);//menyembunyikan tampilan dan menampilkan home page
-//                GUIBayar dashboard=new GUIBayar();
-//                dashboard.setLocationRelativeTo(dashboard);
-//                dashboard.setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jCheckBoxMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBoxMenuItem1ActionPerformed
-        // TODO add your handling code here:
+//        this.setVisible(false);//menyembunyikan tampilan dan menampilkan home page
+//        TambahData dashboard=new TambahData();
+//        dashboard.setLocationRelativeTo(dashboard);
+//        dashboard.setVisible(true);
     }//GEN-LAST:event_jCheckBoxMenuItem1ActionPerformed
 
     private void jCheckBoxMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBoxMenuItem2ActionPerformed
@@ -187,17 +201,8 @@ public class Home extends javax.swing.JFrame {
     }//GEN-LAST:event_jCheckBoxMenuItem2ActionPerformed
 
     private void jCheckBoxMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBoxMenuItem4ActionPerformed
-        // TODO add your handling code here:
-        this.setVisible(false);//menyembunyikan tampilan dan menampilkan home page
-        Laporan dashboard=new Laporan();
-        dashboard.setLocationRelativeTo(dashboard);
-        dashboard.setVisible(true);
-    }//GEN-LAST:event_jCheckBoxMenuItem4ActionPerformed
-
-    private void jCheckBoxMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBoxMenuItem5ActionPerformed
-        // TODO add your handling code here:
         System.exit(0);
-    }//GEN-LAST:event_jCheckBoxMenuItem5ActionPerformed
+    }//GEN-LAST:event_jCheckBoxMenuItem4ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -216,20 +221,20 @@ public class Home extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Home.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Laporan.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Home.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Laporan.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Home.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Laporan.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Home.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Laporan.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Home().setVisible(true);
+                new Laporan().setVisible(true);
             }
         });
     }
@@ -237,14 +242,17 @@ public class Home extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
     private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem1;
     private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem2;
+    private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem3;
     private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem4;
-    private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem5;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable jTable1;
+    private javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables
 }
