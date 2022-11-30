@@ -16,5 +16,9 @@ public class Villa {
         System.out.println("Percobaan commit");
          System.out.println("update oleh rimyat !");
         System.out.println("tanggal 30 saya  commit");
+         System.out.println("Hello kaka!");
+        System.out.println("Percobaan commit ke 3 ");
+         System.out.println("update oleh rimyat ke 3!");
+        System.out.println("tanggal 30 saya  commit");
     }
 }
